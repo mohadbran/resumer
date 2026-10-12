@@ -1,5 +1,5 @@
 
-import { API_URL } from "../config/index.js";
+import { CONFIG } from "../config/index.js";
 
 /**
  * Central API gateway for the resume portfolio.
@@ -9,7 +9,7 @@ import { API_URL } from "../config/index.js";
  */
 
 // Replace this URL if you deploy a new Google Apps Script version.
-const RESUME_API_URL = API_URL;
+const RESUME_API_URL = CONFIG.RESUME_API_URL;
 
 /**
  * Builds a URL with the requested API action.
@@ -42,10 +42,12 @@ async function request(action) {
       },
     });
   } catch (error) {
+    const message =
+        error instanceof Error ? error.message : String(error);
+
     throw new Error(
-      `Unable to connect to the resume server. ${
-        error instanceof Error ? error.message : ""
-      }`.trim()
+        `Unable to connect to the resume server. ${message}`.trim(),
+        { cause: error }
     );
   }
 

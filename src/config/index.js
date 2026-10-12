@@ -1,1 +1,4 @@
-export const API_URL =   "https://script.google.com/macros/s/AKfycbwQCNijJ_6dJvz9SpSGlkaEUf3-Bcbn_gKjq13nyGFfzeipV7YO2qbZXlVtHiBhSr4/exec";
+
+export const CONFIG = {
+    RESUME_API_URL: import.meta.env.VITE_RESUME_API_URL || ''
+};

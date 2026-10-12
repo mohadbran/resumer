@@ -18,4 +18,28 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+
+  {
+    files: ['src/server-data/**/*.js'],
+
+    languageOptions: {
+        globals: {
+            ContentService: 'readonly',
+            SpreadsheetApp: 'readonly',
+            DocumentApp: 'readonly',
+            DriveApp: 'readonly',
+            Logger: 'readonly',
+        },
+    },
+
+    rules: {
+        'no-unused-vars': [
+            'error',
+            {
+                varsIgnorePattern:
+                    '^(doGet|testGenerateResume)$',
+            },
+        ],
+    },
+  },
 ])
