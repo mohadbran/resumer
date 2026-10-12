@@ -101,8 +101,8 @@ personal-resume-system/
 ### Installation
 
 ```bash
-git clone <YOUR_REPOSITORY_URL>
-cd personal-resume-system
+git clone https://github.com/mohadbran/resumer.git
+cd resumer
 npm install
 ```
 
